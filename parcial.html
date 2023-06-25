@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro de autos</title>
+    <link rel="stylesheet" href="parcial.css" />
+  </head>
+
+  <script>
+function testJS() {
+    var b = document.getElementById('name').value,
+        url = 'http://path_to_your_html_files/next.html?name=' + encodeURIComponent(b);
+
+    document.location.href = url;
+}
+</script>
+
+
+
+
+  <h1>Formulario de afiliacion</h1>
+  <body>
+
+
+
+    <form action="">
+        <div>
+            <label for="name">Nombre</label>
+            <input type="text" id="nam">
+        </div>
+        <div>
+            <label for="name">Apellido</label>
+            <input type="text" id="surnam">
+        </div>
+
+         <div>
+            <label for="name">Telefono</label>
+            <input type="text" id="surname">
+        </div>
+
+         <div>
+            <label for="name">Gustos</label>
+            <input type="text" id="name">
+        </div>
+    </form>
+    <input type="button" onclick="add();" value="Gustos">
+    <input type="button" onclick="add();" value="Aceptar">
+    <div>
+        <table id="output" >
+            <thead><td >Name </td><td>%</td></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+<script type="text/javascript" src="parcial.js"></script>
+  <script type="text/javascript" src="parcial.js"></script>
+</html>
