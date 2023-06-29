@@ -3,6 +3,8 @@ function validarFormulario() {
   const apellido = document.getElementById("apellido").value;
   const direccion = document.getElementById("direccion").value;
   const usuario = document.getElementById("usuario").value;
+  const contrasena = document.getElementById("contrasena").value;
+  const ccpaswd = document.getElementById("ccpaswd").value;
 
   // Validación del campo nombre
   if (nombre.trim() === "" || nombre.length > 25) {
@@ -24,16 +26,30 @@ function validarFormulario() {
     return false;
   }
 
-  // Validación del campo usuario
-  const caracteresValidos = /^[a-zA-Z0-9]+$/;
-  if (usuario.trim() === "" || usuario.length > 20 || usuario.length < 10 || !caracteresValidos.test(usuario)) {
-    alert("Por favor, ingresa un usuario válido (entre 10 y 20 caracteres alfanuméricos).");
+
+ // Validación del campo contrasena
+  const caracteresValidosContrasena = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[#%/&])[A-Za-z\d#%/&]{15,20}$/;
+  if (contrasena.trim() === "" || contrasena.length > 20 || contrasena.length < 15 || !caracteresValidosContrasena.test(contrasena)) {
+    alert("Por favor, ingresa una contraseña válida (entre 15 y 20 caracteres con al menos una mayúscula, una minúscula, un número y un caracter especial [#%/&]).");
     return false;
   }
 
+  // Validación del campo ccpaswd
+  if (ccpaswd.trim() === "" || ccpaswd.length > 20 || ccpaswd.length < 15 || !caracteresValidosContrasena.test(ccpaswd)) {
+    alert("Por favor, ingresa una confirmación de contraseña válida (entre 15 y 20 caracteres con al menos una mayúscula, una minúscula, un número y un caracter especial [#%/&]).");
+    return false;
+  }
 
-
+  // Validación de la igualdad de contraseñas
+  if (contrasena !== ccpaswd) {
+    alert("La confirmación de contraseña no coincide con la contraseña ingresada.");
+    return false;
+  }
 
   return true;
+
+
+
+
 }
 
