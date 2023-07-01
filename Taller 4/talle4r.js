@@ -6,19 +6,19 @@ function validarFormulario() {
   const contrasena = document.getElementById("contrasena").value;
   const ccpaswd = document.getElementById("ccpaswd").value;
 
-  // Validación del campo nombre
+
   if (nombre.trim() === "" || nombre.length > 25) {
     alert("Por favor, ingresa un nombre válido (máximo 25 caracteres).");
     return false;
   }
 
-  // Validación del campo apellido
+
   if (apellido.trim() === "" || apellido.length > 25) {
     alert("Por favor, ingresa un apellido válido (máximo 25 caracteres).");
     return false;
   }
 
-  // Validación del campo dirección
+
   const palabrasClave = ["cll", "cra", "av", "anv", "trans"];
   const direccionValida = palabrasClave.some(palabra => direccion.toLowerCase().startsWith(palabra));
   if (!direccionValida) {
@@ -27,29 +27,52 @@ function validarFormulario() {
   }
 
 
- // Validación del campo contrasena
-  const caracteresValidosContrasena = /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])(?=.*[#%/&])[A-Za-z\d#%/&]{15,20}$/;
+  const caracteresValidosContrasena = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[#%/&]).*$";
   if (contrasena.trim() === "" || contrasena.length > 20 || contrasena.length < 15 || !caracteresValidosContrasena.test(contrasena)) {
     alert("Por favor, ingresa una contraseña válida (entre 15 y 20 caracteres con al menos una mayúscula, una minúscula, un número y un caracter especial [#%/&]).");
     return false;
   }
 
-  // Validación del campo ccpaswd
+
   if (ccpaswd.trim() === "" || ccpaswd.length > 20 || ccpaswd.length < 15 || !caracteresValidosContrasena.test(ccpaswd)) {
-    alert("Por favor, ingresa una confirmación de contraseña válida (entre 15 y 20 caracteres con al menos una mayúscula, una minúscula, un número y un caracter especial [#%/&]).");
+    alert("La dos contraseñas tienen que ser iguales");
     return false;
   }
 
-  // Validación de la igualdad de contraseñas
+
   if (contrasena !== ccpaswd) {
     alert("La confirmación de contraseña no coincide con la contraseña ingresada.");
     return false;
   }
 
   return true;
-
-
-
-
 }
 
+function mostrarCajaTexto(opcion) {
+  const cajaTexto = document.getElementById("cajaTexto");
+  const gustoTexto = document.getElementById("gustoTexto");
+
+  if (opcion === "color") {
+    cajaTexto.style.display = "block";
+    gustoTexto.placeholder = "Escribe tu color favorito";
+  } else if (opcion === "marca") {
+    cajaTexto.style.display = "block";
+    gustoTexto.placeholder = "Escribe tu marca de carro favorita";
+  } else if (opcion === "modelo") {
+    cajaTexto.style.display = "block";
+    gustoTexto.placeholder = "Escribe tu modelo de carro favorito";
+  } else {
+    cajaTexto.style.display = "none";
+    gustoTexto.value = "";
+  }
+}
+
+function mostrarValores() {
+  const rangoMinimo = document.getElementById("rangoMinimo");
+  const rangoMaximo = document.getElementById("rangoMaximo");
+  const valorMinimo = document.getElementById("valorMinimo");
+  const valorMaximo = document.getElementById("valorMaximo");
+
+  valorMinimo.innerHTML = "Valor mínimo: " + rangoMinimo.value+' COP';
+  valorMaximo.innerHTML = "Valor máximo: " + rangoMaximo.value+' COP';
+}

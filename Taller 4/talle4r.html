@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-   <link rel="stylesheet" href="talle4r.css">
-   <script src="talle4r.js"></script>
+    <link rel="stylesheet" href="talle4r.css">
+    <script src="talle4r.js"></script>
+
     <title>Formulario de registro</title>
   </head>
   <body>
     <h1>Formulario de registro</h1>
     <form onsubmit="return validarFormulario()">
 
-        <label for="idUsuario">Id Usuario:</label>
+      <label for="idUsuario">Id Usuario:</label>
       <input type="text" id="idUsuario" name="nombre" maxlength="11"><br>
 
       <label for="pais">Id Pais:</label>
       <input type="number" id="idpais" name="nombre" maxlength="3"><br>
-
 
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" maxlength="25"><br>
@@ -31,19 +31,49 @@
       <label for="contrasena">Contraseña:</label>
       <input type="password" id="ccpaswd" name="contrasena"><br>
 
-
       <label for="contrasena">Confirmar Contraseña:</label>
       <input type="password" id="contrasena" name="contrasena"><br>
-
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" maxlength="120"><br>
 
       <label for="telefono">Teléfono:</label>
-      <input type="tel" id="telefono" name="telefono" maxlength="20" ><br>
+      <input type="tel" id="telefono" name="telefono" maxlength="20"><br>
+
+    <label>Gustos:</label>
+<br>
+<label for="color">Color favorito:</label>
+<input type="radio" name="gusto" value="color" onclick="mostrarCajaTexto('color')"> Color
+<br>
+<label for="marca">Marca de carro favorita:</label>
+<input type="radio" name="gusto" value="marca" onclick="mostrarCajaTexto('marca')"> Marca
+<br>
+<label for="modelo">Modelo de carro favorito:</label>
+<input type="radio" name="gusto" value="modelo" onclick="mostrarCajaTexto('modelo')"> Modelo
+<br>
+<div id="cajaTexto" style="display: none;">
+  <label for="gustoTexto">Escribe tu gusto:</label>
+  <input type="text" id="gustoTexto" name="gustoTexto">
+</div>
+<br />
+<br />
+<br />
+<label for="rangoMinimo">Valor mínimo:</label>
+<input type="range" id="rangoMinimo" name="rangoMinimo" min="0" max="100000000" step="1000000" oninput="mostrarValores()">
+<span id="valorMinimo"></span>
+<br />
+<br />
+<br />
+<label for="rangoMaximo">Valor máximo:</label>
+<input type="range" id="rangoMaximo" name="rangoMaximo" min="0" max="100000000" step="1000000" oninput="mostrarValores()">
+<span id="valorMaximo"></span>
 
 
-      <button onclick="validarFormulario()">Validar</button>
-    </form>
+
+  <button onclick="validarFormulario()">Validar</button>
+</form>
+
+
   </body>
 </html>
+
