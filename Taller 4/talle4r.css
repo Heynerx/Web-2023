@@ -58,30 +58,3 @@
         color: #fff;
       }
 
-      /* Estilos para la sección de registro de gustos */
-      #gustos-section {
-        display: none;
-        margin-top: 20px;
-      }
-
-      /* Estilos para el input type="radio" */
-      #color-favorito,
-      #marca-favorita,
-      #estilo-favorito,
-      #modelo-favorito {
-        margin-top: 10px;
-      }
-
-      /* Estilos para el input range */
-      #valor-minimo,
-      #valor-maximo {
-        margin-top: 10px;
-      }
-
-      /* Mostrar la sección de registro de gustos cuando se seleccione un input type="radio" */
-      #color-favorito:checked ~ #gustos-section,
-      #marca-favorita:checked ~ #gustos-section,
-      #estilo-favorito:checked ~ #gustos-section,
-      #modelo-favorito:checked ~ #gustos-section {
-        display: block;
-      }
