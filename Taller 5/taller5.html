@@ -11,7 +11,7 @@
     </head>
 
     <body style="background-color: #E7EAE8;" >
-        
+
 
         <div class = "container" style="background-color:#90caf9; margin-top:30px; margin-bottom: 30px ; border:solid 0.3cm;"  >
             <div class = "form" style="margin: 10px; height: 23cm; line-height:0.5px"  >
@@ -74,7 +74,7 @@
                             <label for="Fechadenacimiento" style="font-weight: bold;" >Fecha de nacimiento</label>
                         </div>
                         <div id = "ocultoxd" class = "input-field col s3" >
-                            
+
                         </div>
                     </div>
                     <br/>
@@ -83,7 +83,134 @@
                         <div class = "input-field col s6">
                             <input id="usuario" type="text" class="validate" pattern="[A-Za-z0-9_-]{1,15}">
                             <label for="usuario" style="font-weight: bold;">Usuario</label>
+       <!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1" />
+    <script src="taller5.js"></script>
+    <title>Taller 5 - Web Server</title>
+
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+
+        .container {
+            background-color: #90caf9;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: solid 0.3cm;
+            padding: 20px;
+        }
+
+        .form {
+            margin: 10px;
+            height: 23cm;
+            line-height: 0.5px;
+        }
+
+        #titulo1 {
+            color: white;
+        }
+
+        .row.center {
+            color: white;
+        }
+
+        /* Estilo para los campos de texto y las etiquetas */
+        .input-field input[type="text"],
+        .input-field input[type="date"],
+        .input-field input[type="password"],
+        .input-field input[type="number"],
+        .input-field select {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+
+        .input-field label {
+            color: white;
+        }
+
+        .input-field input[type="text"]:focus + label,
+        .input-field input[type="date"]:focus + label,
+        .input-field input[type="password"]:focus + label,
+        .input-field input[type="number"]:focus + label,
+        .input-field select:focus + label {
+            color: #2196F3;
+        }
+
+        .input-field input[type="text"]:focus,
+        .input-field input[type="date"]:focus,
+        .input-field input[type="password"]:focus,
+        .input-field input[type="number"]:focus,
+        .input-field select:focus {
+            border-bottom: 1px solid #2196F3;
+            box-shadow: 0 1px 0 0 #2196F3;
+        }
+
+        .btn {
+            background-color: #2196F3;
+        }
+
+        .btn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="row center">
+                <h3><b>FORMULARIO DE REGISTRO</b></h3>
+            </div>
+            <form method="GET" onsubmit="validarPassword()">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="idusuario" type="text" size="25">
+                        <label for="idusuario" style="font-weight: bold;">Id_Usuario</label>
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field">
+                            <label style="font-weight: bold;">Id_Pais</label>
+                            <select class="browser-default">
+                                <option value="value0" disabled selected>Elija una opción</option>
+                                <option value="value1">Argentina</option>
+                                <!-- Otras opciones -->
+                            </select>
                         </div>
+                    </div>
+                </div>
+                <!-- Resto de los campos del formulario -->
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Registrar
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+    </script>
+    <script type="text/javascript">
+        function mostrar() {
+            document.getElementById('oculto').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+                 </div>
                         <div class="input-field col s3">
                             <input id="Contraseña" type="password" class="validate">
                             <label for="Contraseña" style="font-weight: bold;">Password</label>
@@ -115,17 +242,17 @@
                         <div class = "row">
                             <div>
                                 <label>
-                              
-                               
-                                <input name="group1"  type="radio"  onclick = "mostrar()"  > 
+
+
+                                <input name="group1"  type="radio"  onclick = "mostrar()"  >
                                 <span>Si</span>
 
-                                   
+
                                 </label>
-                            </div>                      
+                            </div>
                         </div>
                             <div class = "row">
-                                
+
                                 <div id = "oculto">
                                 <select  name = "select" >
                                     <option value="value0" selected>Ninguna</option>
@@ -136,11 +263,11 @@
                                     <option value="value3">Varicela </option>
                                     <option value="value3">Gastroenteritis virica </option>
                                 </select>
-                            
+
                             </div>
                             </div>
-                          
-                     
+
+
                             <p>
                               <label>
                                 <input name="group1" type="radio" onchange ="ocultar()" >
@@ -155,7 +282,7 @@
                         </button>
                     </div>
                      </center>
-                    
+
                 </form>
             </div>
         </div>
@@ -175,6 +302,6 @@
             document.getElementById('oculto').style.display= 'block';
           }
         </script>
-        
+
     </body>
 </html>
